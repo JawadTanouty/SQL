@@ -21,7 +21,6 @@ if(isset($_GET['couleur'])){
 }
 
 $message = "";
-var_dump($_GET);
 
 if (isset($_GET['age'])){
     $age = (int) $_GET['age']; //Convertir en entier
@@ -59,6 +58,12 @@ if (isset($_GET['age'])){
         <input type="number" name="age" placeholder="Entrez votre âge">
         <button type="submit">Envoyer</button>
 </form>
+
+<form action="" method="get">
+<input type="text" name="first-name" placeholder="Entrez votre prénom">
+<input type="number" name="age" placeholder="Entrez votre âge">
+<button type=submit>Envoyer</button>
+    </form>
 
 </body>
 </html>
