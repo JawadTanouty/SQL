@@ -59,12 +59,6 @@ if (isset($_GET['age'])){
         <button type="submit">Envoyer</button>
 </form>
 
-<form action="" method="get">
-<input type="text" name="first-name" placeholder="Entrez votre prénom">
-<input type="number" name="age" placeholder="Entrez votre âge">
-<button type=submit>Envoyer</button>
-    </form>
-
 </body>
 </html>
 
