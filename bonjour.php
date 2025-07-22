@@ -32,29 +32,28 @@ if (isset($_GET['age'])){
     }
 }
 
-    echo $message;
 ?>
 
 
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body style="background-color: <?=$couleur ?>; text-align : center; padding-top: 50px;">
-    <a href="bonjour.php?nom=Alice">Voir profil</a>
+    <a href="bonjour.php?nom=Jawad">Voir profil</a>
 <br>
     <a href="bonjour.php?couleur=rouge">Rouge</a>
     <a href="bonjour.php?couleur=vert">Vert</a>
     <a href="bonjour.php?couleur=bleu">Bleu</a>
-
+    
     <p>Couleur actuelle : <strong><?= htmlspecialchars($choix ?? 'aucune') ?> </strong> </p>
 
 
-<form action="" method="get">
+    <form action="" method="get">
         <input type="number" name="age" placeholder="Entrez votre âge">
         <button type="submit">Envoyer</button>
 </form>
@@ -64,4 +63,6 @@ if (isset($_GET['age'])){
 
 
 
-
+<?php
+echo $message;
+?>
