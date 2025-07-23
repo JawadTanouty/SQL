@@ -96,3 +96,28 @@ $langue = $_SESSION['langue'] ?? 'FR';
 <p><?= $contenu[$langue] ?></p>
 
 
+<?php
+session_start();
+
+$products = [
+    ['id' => 1, 'name' => 'Pc Lenovo', 'price' => 250],
+    ['id' => 2, 'name' => 'Pc Dell', 'price' => 389],
+    ['id' => 3, 'name' => 'Pc HP', 'price' => 1000],
+    ['id' => 4, 'name' => 'Pc Asus', 'price' => 1337],
+];
+?>
+
+<h1>Liste des produits</h1>
+<ul>
+    <?php foreach ($products as $product): ?>
+        <li>
+            <?= $product['name'] ?> - <?= $product['price'] ?> €
+            <form action="add_to_cart.php" method="POST" style="display:inline;">
+                <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                <button type="submit">Ajouter au panier</button>
+            </form>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+<a href="cart.php">Voir le panier</a>

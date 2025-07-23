@@ -68,7 +68,7 @@ $products = [
 $conversionRates = [
     'EUR' => 1,
     'USD' => 1.1,   // 1 euro = 1.10 dollars
-    'GBP' => 0.85,  // 1 euro = 0.85 livres
+    'GBP' => 0.87,  // 1 euro = 0.85 livres
 ];
 
 // Si l'utilisateur choisit une devise
