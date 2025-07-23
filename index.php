@@ -19,3 +19,29 @@ session_start();
 </body>
 </html>
 
+<?php
+session_start();
+$color = isset($_SESSION["color"]) ? $_SESSION["color"] : null;
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+</head>
+<body>
+    <h1>Bienvenue sur la page d'accueil</h1>
+
+    <?php if ($color): ?>
+        <p>Votre couleur préférée est : 
+            <span style="color: <?= htmlspecialchars($color) ?>;">
+                <?= htmlspecialchars($color) ?>
+            </span>
+        </p>
+    <?php else: ?>
+        <p>Aucune couleur choisie. <a href="color.php">Cliquez ici pour en choisir une</a>.</p>
+    <?php endif; ?>
+</body>
+</html>
+
+
