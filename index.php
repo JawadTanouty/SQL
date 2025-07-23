@@ -44,4 +44,25 @@ $color = isset($_SESSION["color"]) ? $_SESSION["color"] : null;
 </body>
 </html>
 
+<?php
+session_start();
+
+// Couleur par défaut si aucun thème n'est encore choisi
+$backgroundColor = isset($_SESSION["theme"]) ? $_SESSION["theme"] : "white";
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+</head>
+<body style="background-color: <?= htmlspecialchars($backgroundColor) ?>;">
+    <h1>Bienvenue sur le site !</h1>
+    <p>Votre thème actuel est : <strong><?= htmlspecialchars($backgroundColor) ?></strong></p>
+    <p><a href="theme.php">Changer de thème</a></p>
+</body>
+</html>
+
+
 
