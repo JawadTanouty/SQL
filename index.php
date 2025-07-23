@@ -30,7 +30,6 @@ $color = isset($_SESSION["color"]) ? $_SESSION["color"] : null;
     <title>Accueil</title>
 </head>
 <body>
-    <h1>Bienvenue sur la page d'accueil</h1>
 
     <?php if ($color): ?>
         <p>Votre couleur préférée est : 
@@ -58,7 +57,6 @@ $backgroundColor = isset($_SESSION["theme"]) ? $_SESSION["theme"] : "white";
     <title>Accueil</title>
 </head>
 <body style="background-color: <?= htmlspecialchars($backgroundColor) ?>;">
-    <h1>Bienvenue sur le site !</h1>
     <p>Votre thème actuel est : <strong><?= htmlspecialchars($backgroundColor) ?></strong></p>
     <p><a href="theme.php">Changer de thème</a></p>
 </body>
@@ -71,7 +69,7 @@ session_start();
 $contenu = [
     "FR" => "Bienvenue !",
     "ENG" => "Welcome !",
-    "ESP" => "¡ Bienvenida !"
+    "ESP" => "¡ Bienvenido !"
 ];
 
 // Si l'utilisateur choisit une langue via le formulaire

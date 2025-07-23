@@ -52,3 +52,62 @@ $max = $_SESSION['price_max'] ?? PHP_INT_MAX;
     </ul>
 </body>
 </html>
+
+<?php
+session_start();
+
+// Tableau des produits en euros
+$products = [
+    ['name' => 'Pc Lenovo', 'price' => 250],
+    ['name' => 'Pc Dell', 'price' => 389],
+    ['name' => 'Pc HP', 'price' => 1000],
+    ['name' => 'Pc Asus', 'price' => 1337],
+];
+
+// Taux de conversion (approximatifs)
+$conversionRates = [
+    'EUR' => 1,
+    'USD' => 1.1,   // 1 euro = 1.10 dollars
+    'GBP' => 0.85,  // 1 euro = 0.85 livres
+];
+
+// Si l'utilisateur choisit une devise
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["currency"])) {
+    $_SESSION["currency"] = $_POST["currency"];
+}
+
+// Devise choisie ou par défaut "EUR"
+$currency = $_SESSION["currency"] ?? "EUR";
+
+// Symbole de la devise
+$symbols = [
+    'EUR' => '€',
+    'USD' => '$',
+    'GBP' => '£'
+];
+
+// Fonction pour convertir le prix
+function convertPrice($priceInEuros, $currency, $rates) {
+    return $priceInEuros * $rates[$currency];
+}
+?>
+
+<!-- Formulaire de choix de la devise -->
+<form method="post">
+    <label>Choisissez une devise :</label><br>
+    <input type="radio" name="currency" value="EUR" <?= $currency === 'EUR' ? 'checked' : '' ?>> Euro (€)<br>
+    <input type="radio" name="currency" value="USD" <?= $currency === 'USD' ? 'checked' : '' ?>> Dollar ($)<br>
+    <input type="radio" name="currency" value="GBP" <?= $currency === 'GBP' ? 'checked' : '' ?>> Livre (£)<br>
+    <button type="submit">Changer la devise</button>
+</form>
+
+<h2>Liste des produits :</h2>
+<ul>
+<?php foreach ($products as $product): 
+    $convertedPrice = convertPrice($product['price'], $currency, $conversionRates);
+    $formattedPrice = number_format($convertedPrice, 2); // arrondi à 2 chiffres
+    $symbol = $symbols[$currency];
+?>
+    <li><?= $product['name'] ?> : <?= $formattedPrice . ' ' . $symbol ?></li>
+<?php endforeach; ?>
+</ul>
