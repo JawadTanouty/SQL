@@ -98,7 +98,7 @@ $langue = $_SESSION['langue'] ?? 'FR';
 
 <?php
 session_start();
-
+// Pour ajouter au panier
 $products = [
     ['id' => 1, 'name' => 'Pc Lenovo', 'price' => 250],
     ['id' => 2, 'name' => 'Pc Dell', 'price' => 389],
