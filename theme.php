@@ -21,10 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["theme"])) {
 <body>
     <h1>Choisissez un thème :</h1>
     <form method="POST" action="theme.php">
-        <label><input type="radio" name="theme" value="white"> Clair</label><br>
-        <label><input type="radio" name="theme" value="black"> Sombre</label><br>
+        <label><input type="radio" name="theme" value="white"> Blanc</label><br>
+        <label><input type="radio" name="theme" value="grey"> Gris</label><br>
         <label><input type="radio" name="theme" value="lightblue"> Bleu</label><br>
-        <label><input type="radio" name="theme" value="lightgreen"> Vert</label><br><br>
+        <label><input type="radio" name="theme" value="lightgreen"> Vert</label><br>
+        <label><input type="radio" name="theme" value="red"> Rouge</label><br>
         <button type="submit">Appliquer le thème</button>
     </form>
 </body>
