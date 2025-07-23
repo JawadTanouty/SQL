@@ -23,6 +23,7 @@ if (empty($cart)) {
         }
     }
     echo "</ul>";
+        echo '<p><a href="clear_cart.php"> Vider le panier</a></p>';
 }
 
 echo '<a href="index.php">← Retour à la boutique</a>';
