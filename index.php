@@ -64,5 +64,37 @@ $backgroundColor = isset($_SESSION["theme"]) ? $_SESSION["theme"] : "white";
 </body>
 </html>
 
+<?php
+session_start();
+
+// Tableau des contenus par langue
+$contenu = [
+    "FR" => "Bienvenue !",
+    "ENG" => "Welcome !",
+    "ESP" => "¡ Bienvenida !"
+];
+
+// Si l'utilisateur choisit une langue via le formulaire
+if (isset($_POST['langue']) && array_key_exists($_POST['langue'], $contenu)) {
+    $_SESSION['langue'] = $_POST['langue'];
+}
+
+// Langue par défaut : FR
+$langue = $_SESSION['langue'] ?? 'FR';
+?>
+
+<!-- Formulaire de sélection de langue -->
+<form method="post">
+    <label for="langue">Choisissez votre langue :</label>
+    <select name="langue" id="langue">
+        <option value="FR" <?= $langue === 'FR' ? 'selected' : '' ?>>Français</option>
+        <option value="ENG" <?= $langue === 'ENG' ? 'selected' : '' ?>>English</option>
+        <option value="ESP" <?= $langue === 'ESP' ? 'selected' : '' ?>>Español</option>
+    </select>
+    <button type="submit">Valider</button>
+</form>
+
+<!-- Affichage du contenu dans la langue choisie -->
+<p><?= $contenu[$langue] ?></p>
 
 
